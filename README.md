@@ -14,8 +14,7 @@
 ## 快速开始
 
  **运行SIS后端服务**:
-   双击 `run_client.bat`，它会自动读取 `data/1.jpg` 并调用本地启动的服务进行完整流程测试。
-   或者使用 python start_server.py 启动服务
+  使用 python start_server.py 启动服务
  **运行测试**:
   python tests/pipeline_test.py
 ### 前置要求
@@ -25,7 +24,7 @@
 
 ### 安装与启动
 
-1. **一键启动 (推荐 Windows 用户)**:
+1. **一键启动 (推荐 Windows 用户)**://这个功能还没有完善，可能会有一点问题
    双击运行 `run_service.bat`，脚本会自动创建虚拟环境、安装依赖并启动服务。
 
 2. **手动启动**:
@@ -125,8 +124,8 @@ project_id:YOUR_PROJECT_ID (可选)
   - 调用本地服务接口，验证服务可用性与请求体格式。
   - 需要先运行服务：`run_service.bat` 或 `uvicorn src.main:app --host 0.0.0.0 --port 8000`.
 
-## 整体流程
-- 输入图片 → OCR-VL（PaddleOCR-VL-0.9B，`http://1.95.143.9:8080/v1/chat/completions`）
+## 整体流程（必看）
+- 输入图片 → OCR-VL（PaddleOCR-VL-0.9B，`http://1.95.xxx.xx:8080/v1/chat/completions`）这里是基于PaddleOCR-VL-0.9B模型的OCR-VL服务，输入图片后，会返回图片中的文本内容。根据自身情况切换OCR，推荐使用OCR：RapidOCR、PaddleOCR等模型服务
 - 文本校验 → `DeepSeek v3.2`（提示词见 `reference/prompt_answers.txt`）
 - 自然语言转译 → `DeepSeek v3.2`（提示词见 `reference/prompt_translate.txt` 或 `prompt_translated.txt`）
 - 语音合成 → 华为云 `SIS`（输出到 `output/<时间戳>/audio.mp3` 或 `/audio_output/<日期>/` 视接口）
