@@ -100,7 +100,7 @@ project_id:YOUR_PROJECT_ID (可选)
 │   │   └── pipeline_service.py   # 流程编排与逐步输出
 │   ├── utils/
 │   │   ├── text_processor.py     # 数学符号规范化与分段
-│   │   ├── image_processor.py    # 本地 OCR 兜底（RapidOCR/pytesseract）
+│   │   ├── image_processor.py    # 本地 OCR （RapidOCR/pytesseract）
 │   │   └── versioning.py         # 三位版本号管理与日志记录
 ├── tests/
 │   ├── pipeline_test.py          # 管线端到端测试（默认 data/1.jpg）
